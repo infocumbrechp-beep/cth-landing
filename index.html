@@ -520,8 +520,8 @@ nav.scrolled { box-shadow:var(--sh); }
 
 /* Bloque cupón */
 .cupon-bloque {
-  background:#e8f4fb; border-radius:var(--rxl);
-  border:1px solid #b8d8ee; box-shadow:var(--sh2);
+  background:var(--white); border-radius:var(--rxl);
+  border:1px solid var(--g50); box-shadow:var(--sh2);
   overflow:hidden;
 }
 .cupon-header {
@@ -567,13 +567,13 @@ nav.scrolled { box-shadow:var(--sh); }
 
 /* ESTADO: bloqueado */
 #cupon-lock-state .cupon-code-box {
-  background:#fff; border:2px dashed #5ba3c9;
+  background:var(--off); border:2px dashed var(--g100);
   border-radius:var(--r); padding:16px; text-align:center; cursor:pointer;
   transition:border-color .2s, background .15s;
 }
 #cupon-lock-state .cupon-code-box:hover { border-color:var(--cyan); background:var(--cyan-lt); }
-.ccb-lbl { font-size:10px; color:#3a5a6a; letter-spacing:1px; text-transform:uppercase; margin-bottom:5px; font-weight:700; }
-.ccb-val { font-family:'DM Serif Display',serif; font-size:22px; color:#0B2545; letter-spacing:3px; }
+.ccb-lbl { font-size:9px; color:var(--g300); letter-spacing:1px; text-transform:uppercase; margin-bottom:5px; }
+.ccb-val { font-family:'DM Serif Display',serif; font-size:22px; color:var(--g100); letter-spacing:3px; }
 .ccb-cta { font-size:11px; color:var(--cyan); font-weight:700; margin-top:4px; }
 
 /* ESTADO: abierto */
@@ -625,7 +625,7 @@ nav.scrolled { box-shadow:var(--sh); }
 /* card 3 */
 .cob-card:nth-child(3) { background:var(--green); border-color:transparent; }
 
-.cob-ico { font-size:22px; margin-bottom:16px; display:flex; width:44px; height:44px; align-items:center; justify-content:center; border-radius:10px; background:rgba(255,255,255,.15); }
+.cob-ico { font-size:26px; margin-bottom:16px; display:block; }
 
 .cob-tag {
   display:inline-block; font-size:9px; font-weight:700;
@@ -967,13 +967,13 @@ nav.scrolled { box-shadow:var(--sh); }
 ═══════════════════════════════════════════════════ */
 #dist { padding:44px 0; background:var(--off); border-top:1px solid var(--g50); }
 .dist-inner { display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
-.dist-logo { background:var(--navy); border-radius:var(--rlg); padding:16px 24px; flex-shrink:0; }
+.dist-logo { background:var(--navy); border-radius:var(--rlg); padding:20px 28px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
 .dist-logo-n { font-family:'DM Serif Display',serif; font-size:16px; color:white; }
 .dist-logo-s { font-size:9px; color:var(--cyan); font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
 .dist-txt { flex:1; min-width:200px; }
 .dist-txt h3 { font-family:'DM Serif Display',serif; font-size:18px; color:var(--navy); margin-bottom:5px; }
 .dist-txt p { font-size:13px; color:var(--g500); line-height:1.65; }
-.dist-brands { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.dist-brands { display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:14px; }
 .dbtag { background:var(--white); border:1px solid var(--g50); border-radius:100px; padding:3px 10px; font-size:11px; font-weight:700; color:var(--g700); }
 
 footer { background:var(--navy); padding:44px 0 22px; }
@@ -1447,7 +1447,8 @@ footer { background:var(--navy); padding:44px 0 22px; }
             <button class="btn-orange" style="width:100%;justify-content:center;margin-top:10px;" onclick="compartirCupon()">📤 Compartir con mi paciente</button>
             <a id="wa-cupon" href="#" target="_blank" class="btn-outline" style="width:100%;justify-content:center;margin-top:8px;">💬 Enviar por WhatsApp</a>
           </div>
-
+          <p class="cupon-micro">Puede compartir este descuento directamente durante la consulta para facilitar el contacto del paciente con el equipo de CTH.</p>
+          <p style="font-size:11px;color:var(--g100);font-style:italic;margin-top:6px;text-align:center;">Recomendar es fácil. Acceder también.</p>
         </div>
       </div>
     </div>
@@ -1465,7 +1466,7 @@ footer { background:var(--navy); padding:44px 0 22px; }
     <div class="cob-grid reveal">
       <!-- Caracas -->
       <div class="cob-card">
-        <span class="cob-ico" style="background:rgba(255,255,255,.12); font-size:20px;">🏠</span>
+        <span class="cob-ico">🏠</span>
         <div class="cob-tag">Presencial · Domiciliaria</div>
         <h3 class="cob-title">Gran Caracas y área metropolitana</h3>
         <p class="cob-zone">Caracas · Miranda · Vargas</p>
@@ -1479,7 +1480,7 @@ footer { background:var(--navy); padding:44px 0 22px; }
       </div>
       <!-- Interior -->
       <div class="cob-card">
-        <span class="cob-ico" style="background:var(--cyan-lt); font-size:20px;">💻</span>
+        <span class="cob-ico">💻</span>
         <div class="cob-tag">Telemedicina</div>
         <h3 class="cob-title">Interior del país</h3>
         <p class="cob-zone">Toda Venezuela</p>
@@ -1493,7 +1494,7 @@ footer { background:var(--navy); padding:44px 0 22px; }
       </div>
       <!-- Seguimiento -->
       <div class="cob-card">
-        <span class="cob-ico" style="background:rgba(255,255,255,.2); color:#fff; font-size:18px; font-weight:700;">↺</span>
+        <span class="cob-ico">🔄</span>
         <div class="cob-tag">Continuidad</div>
         <h3 class="cob-title">Seguimiento estructurado</h3>
         <p class="cob-zone">Independiente de la ubicación</p>
@@ -1748,18 +1749,33 @@ footer { background:var(--navy); padding:44px 0 22px; }
   <div class="container">
     <div class="dist-inner reveal">
       <div class="dist-logo">
-        <div class="dist-logo-n">Medical Shields MS, C.A.</div>
-        <div class="dist-logo-s">Distribuidor exclusivo · Venezuela</div>
+        <img src="Medical Shields.png" alt="Medical Shields MS, C.A."
+             style="height:64px; width:auto; object-fit:contain;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+        <div style="display:none;">
+          <div class="dist-logo-n">Medical Shields MS, C.A.</div>
+          <div class="dist-logo-s">Distribuidor exclusivo · Venezuela</div>
+        </div>
       </div>
       <div class="dist-txt">
         <h3>Tecnología internacional disponible en Venezuela</h3>
         <p>Medical Shields MS, C.A. es el distribuidor exclusivo para Venezuela de las principales marcas internacionales en cuidado avanzado de heridas. CTH utiliza estos productos en todos sus protocolos de atención.</p>
         <div class="dist-brands">
-          <div class="dbtag">🇨🇦 Covalon</div>
-          <div class="dbtag">🇪🇸 Synkotech</div>
-          <div class="dbtag">🇦🇷 Soubeiran Chobet</div>
-          <div class="dbtag">🇨🇳 Conkote</div>
-          <div class="dbtag">🇨🇳 Baihe · ABLE®</div>
+          <img src="logo-covalon.png" alt="Covalon"
+               style="height:28px;width:auto;object-fit:contain;opacity:.85;"
+               onerror="this.outerHTML='<span class=\'dbtag\'>Covalon</span>'">
+          <img src="synkotech.jpg" alt="Synkotech"
+               style="height:28px;width:auto;object-fit:contain;opacity:.85;"
+               onerror="this.outerHTML='<span class=\'dbtag\'>Synkotech</span>'">
+          <img src="logo-soubeiran.png" alt="Soubeiran Chobet"
+               style="height:28px;width:auto;object-fit:contain;opacity:.85;"
+               onerror="this.outerHTML='<span class=\'dbtag\'>Soubeiran</span>'">
+          <img src="conkote (1).png" alt="Conkote"
+               style="height:28px;width:auto;object-fit:contain;opacity:.85;"
+               onerror="this.outerHTML='<span class=\'dbtag\'>Conkote</span>'">
+          <img src="Logo-baihe.png" alt="Baihe ABLE"
+               style="height:28px;width:auto;object-fit:contain;opacity:.85;"
+               onerror="this.outerHTML='<span class=\'dbtag\'>Baihe</span>'">
         </div>
       </div>
     </div>
