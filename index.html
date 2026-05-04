@@ -793,7 +793,7 @@ nav.scrolled { box-shadow:var(--sh); }
   height:26px; text-decoration:none; transition:transform .2s;
 }
 .ml-link:hover { transform:scale(1.06); }
-.ml-link img { height:100%; width:auto; max-width:80px; object-fit:contain; filter:grayscale(1) opacity(.38); transition:filter .25s; }
+.ml-link img { height:100%; width:auto; max-width:80px; object-fit:contain; filter:grayscale(0) opacity(.75); transition:filter .25s; }
 .ml-link:hover img { filter:grayscale(0) opacity(1); }
 .ml-link:hover .ml-t { color:var(--cyan); }
 /* Logos con fondo oscuro (Synkotech, Soubeiran, Baihe): mostrar sobre pill navy */
@@ -801,8 +801,8 @@ nav.scrolled { box-shadow:var(--sh); }
   background:var(--navy); border-radius:6px;
   padding:4px 10px; height:auto;
 }
-.ml-link.ml-dark img { filter:brightness(0) invert(1) opacity(.55); height:16px; }
-.ml-link.ml-dark:hover img { filter:brightness(0) invert(1) opacity(1); }
+.ml-link.ml-dark img { filter:opacity(.75); height:22px; }
+.ml-link.ml-dark:hover img { filter:opacity(1); }
 
 @media(max-width:900px){ .tec-inner{grid-template-columns:1fr;} }
 
@@ -1462,8 +1462,7 @@ footer { background:var(--navy); padding:44px 0 22px; }
             </a>
             <a class="ml-link ml-dark" href="https://www.conkote.com" target="_blank" title="Ver Conkote">
               <img src="conkote (1).png" alt="Conkote"
-                   onerror="this.style.display='none'"
-                   style="height:32px;width:auto;object-fit:contain;">
+                   onerror="this.style.display='none'">
               <span class="ml-t" style="display:none;">Conkote</span>
             </a>
           </div>
