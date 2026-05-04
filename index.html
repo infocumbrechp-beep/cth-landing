@@ -520,8 +520,8 @@ nav.scrolled { box-shadow:var(--sh); }
 
 /* Bloque cupón */
 .cupon-bloque {
-  background:var(--white); border-radius:var(--rxl);
-  border:1px solid var(--g50); box-shadow:var(--sh2);
+  background:#e8f4fb; border-radius:var(--rxl);
+  border:1px solid #b8d8ee; box-shadow:var(--sh2);
   overflow:hidden;
 }
 .cupon-header {
@@ -567,13 +567,13 @@ nav.scrolled { box-shadow:var(--sh); }
 
 /* ESTADO: bloqueado */
 #cupon-lock-state .cupon-code-box {
-  background:var(--off); border:2px dashed var(--g100);
+  background:#fff; border:2px dashed #5ba3c9;
   border-radius:var(--r); padding:16px; text-align:center; cursor:pointer;
   transition:border-color .2s, background .15s;
 }
 #cupon-lock-state .cupon-code-box:hover { border-color:var(--cyan); background:var(--cyan-lt); }
-.ccb-lbl { font-size:9px; color:var(--g300); letter-spacing:1px; text-transform:uppercase; margin-bottom:5px; }
-.ccb-val { font-family:'DM Serif Display',serif; font-size:22px; color:var(--g100); letter-spacing:3px; }
+.ccb-lbl { font-size:10px; color:#3a5a6a; letter-spacing:1px; text-transform:uppercase; margin-bottom:5px; font-weight:700; }
+.ccb-val { font-family:'DM Serif Display',serif; font-size:22px; color:#0B2545; letter-spacing:3px; }
 .ccb-cta { font-size:11px; color:var(--cyan); font-weight:700; margin-top:4px; }
 
 /* ESTADO: abierto */
@@ -625,7 +625,7 @@ nav.scrolled { box-shadow:var(--sh); }
 /* card 3 */
 .cob-card:nth-child(3) { background:var(--green); border-color:transparent; }
 
-.cob-ico { font-size:26px; margin-bottom:16px; display:block; }
+.cob-ico { font-size:22px; margin-bottom:16px; display:flex; width:44px; height:44px; align-items:center; justify-content:center; border-radius:10px; background:rgba(255,255,255,.15); }
 
 .cob-tag {
   display:inline-block; font-size:9px; font-weight:700;
@@ -1447,8 +1447,7 @@ footer { background:var(--navy); padding:44px 0 22px; }
             <button class="btn-orange" style="width:100%;justify-content:center;margin-top:10px;" onclick="compartirCupon()">📤 Compartir con mi paciente</button>
             <a id="wa-cupon" href="#" target="_blank" class="btn-outline" style="width:100%;justify-content:center;margin-top:8px;">💬 Enviar por WhatsApp</a>
           </div>
-          <p class="cupon-micro">Puede compartir este descuento directamente durante la consulta para facilitar el contacto del paciente con el equipo de CTH.</p>
-          <p style="font-size:11px;color:var(--g100);font-style:italic;margin-top:6px;text-align:center;">Recomendar es fácil. Acceder también.</p>
+
         </div>
       </div>
     </div>
@@ -1466,7 +1465,7 @@ footer { background:var(--navy); padding:44px 0 22px; }
     <div class="cob-grid reveal">
       <!-- Caracas -->
       <div class="cob-card">
-        <span class="cob-ico">🏠</span>
+        <span class="cob-ico" style="background:rgba(255,255,255,.12); font-size:20px;">🏠</span>
         <div class="cob-tag">Presencial · Domiciliaria</div>
         <h3 class="cob-title">Gran Caracas y área metropolitana</h3>
         <p class="cob-zone">Caracas · Miranda · Vargas</p>
@@ -1480,7 +1479,7 @@ footer { background:var(--navy); padding:44px 0 22px; }
       </div>
       <!-- Interior -->
       <div class="cob-card">
-        <span class="cob-ico">💻</span>
+        <span class="cob-ico" style="background:var(--cyan-lt); font-size:20px;">💻</span>
         <div class="cob-tag">Telemedicina</div>
         <h3 class="cob-title">Interior del país</h3>
         <p class="cob-zone">Toda Venezuela</p>
@@ -1494,7 +1493,7 @@ footer { background:var(--navy); padding:44px 0 22px; }
       </div>
       <!-- Seguimiento -->
       <div class="cob-card">
-        <span class="cob-ico">🔄</span>
+        <span class="cob-ico" style="background:rgba(255,255,255,.2); color:#fff; font-size:18px; font-weight:700;">↺</span>
         <div class="cob-tag">Continuidad</div>
         <h3 class="cob-title">Seguimiento estructurado</h3>
         <p class="cob-zone">Independiente de la ubicación</p>
