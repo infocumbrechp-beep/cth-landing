@@ -146,7 +146,7 @@ nav.scrolled { box-shadow:var(--sh); }
   display:flex; align-items:center; justify-content:space-between;
   padding:14px 28px; max-width:1100px; margin:0 auto;
 }
-.nav-logo img { height:32px; width:auto; object-fit:contain; }
+.nav-logo img { height:44px; width:auto; object-fit:contain; }
 .nav-logo-txt { font-family:'DM Serif Display',serif; font-size:18px; color:var(--navy); }
 .nav-links { display:flex; gap:24px; list-style:none; }
 .nav-links a { font-size:13px; font-weight:600; color:var(--g500); transition:color .2s; }
@@ -179,14 +179,29 @@ nav.scrolled { box-shadow:var(--sh); }
   background-size:40px 40px;
 }
 .hero-glow-r {
-  position:absolute; top:-100px; right:-80px;
-  width:580px; height:580px; border-radius:50%;
-  background:radial-gradient(circle, rgba(0,174,239,.12) 0%, transparent 65%);
+  position:absolute; top:-120px; right:-100px;
+  width:700px; height:700px; border-radius:50%;
+  background:radial-gradient(circle, rgba(0,174,239,.18) 0%, rgba(0,174,239,.06) 45%, transparent 70%);
 }
 .hero-glow-l {
-  position:absolute; bottom:-60px; left:0;
-  width:360px; height:360px; border-radius:50%;
-  background:radial-gradient(circle, rgba(0,196,154,.08) 0%, transparent 65%);
+  position:absolute; bottom:-80px; left:-60px;
+  width:500px; height:500px; border-radius:50%;
+  background:radial-gradient(circle, rgba(0,196,154,.14) 0%, rgba(0,196,154,.04) 50%, transparent 70%);
+}
+.hero-glow-top {
+  position:absolute; top:0; left:50%;
+  transform:translateX(-50%);
+  width:900px; height:300px;
+  background:radial-gradient(ellipse at 50% 0%, rgba(0,174,239,.10) 0%, transparent 70%);
+  pointer-events:none;
+}
+/* Imagen difuminada derecha — wound care */
+.hero-img-blur {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(0,174,239,.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(0,196,154,.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 10%, rgba(255,255,255,.03) 0%, transparent 40%);
 }
 
 
@@ -199,9 +214,15 @@ nav.scrolled { box-shadow:var(--sh); }
 }
 
 /* Logo hero */
-.hero-logo { margin-bottom:24px; }
-.hero-logo img { height:40px; width:auto; object-fit:contain; filter:brightness(0) invert(1); }
-.hero-logo-txt { font-family:'DM Serif Display',serif; font-size:20px; color:white; display:none; }
+.hero-logo {
+  margin-bottom:32px;
+  display:flex; justify-content:flex-start;
+}
+.hero-logo img {
+  height:90px; width:auto; object-fit:contain;
+  filter:drop-shadow(0 4px 24px rgba(0,196,154,.35));
+}
+.hero-logo-txt { font-family:'DM Serif Display',serif; font-size:28px; color:white; display:none; }
 
 /* Badge */
 .hero-badge {
@@ -1177,8 +1198,10 @@ footer { background:var(--navy); padding:44px 0 22px; }
 </script>
 <section id="hero">
   <div class="hero-texture"></div>
+  <div class="hero-img-blur"></div>
   <div class="hero-glow-r"></div>
   <div class="hero-glow-l"></div>
+  <div class="hero-glow-top"></div>
   <div class="hero-inner">
     <div>
       <div class="hero-logo">
