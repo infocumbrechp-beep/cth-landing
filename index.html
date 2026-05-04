@@ -1095,13 +1095,14 @@ footer { background:var(--navy); padding:44px 0 22px; }
   margin-top:8px; margin-bottom:12px;
 }
 .prod-pdf-btn {
-  display:inline-flex; align-items:center; gap:6px;
-  background:#0B2545; color:white; font-size:12px; font-weight:600;
-  padding:7px 14px; border-radius:8px; text-decoration:none;
-  transition:background .2s;
+  display:flex; align-items:center; gap:8px;
+  background:#f0f4f8; color:#0B2545; font-size:13px; font-weight:600;
+  padding:10px 16px; border-radius:10px; text-decoration:none;
+  border:1.5px solid #c8d8e8; width:100%; box-sizing:border-box;
+  transition:background .2s, color .2s;
 }
-.prod-pdf-btn:hover { background:#00B4A6; }
-.prod-pdf-btn::before { content:"⬇"; }
+.prod-pdf-btn:hover { background:#0B2545; color:#fff; border-color:#0B2545; }
+.prod-pdf-btn::before { content:"📄"; font-size:14px; }
 
 
 /* ═══════════════════════════════════════
