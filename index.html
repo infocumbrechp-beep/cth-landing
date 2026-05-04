@@ -520,8 +520,8 @@ nav.scrolled { box-shadow:var(--sh); }
 
 /* Bloque cupón */
 .cupon-bloque {
-  background:#ddeefa; border-radius:var(--rxl);
-  border:1px solid #a8ccdf; box-shadow:var(--sh2);
+  background:var(--white); border-radius:var(--rxl);
+  border:1px solid var(--g50); box-shadow:var(--sh2);
   overflow:hidden;
 }
 .cupon-header {
@@ -552,10 +552,10 @@ nav.scrolled { box-shadow:var(--sh); }
   flex-shrink:0;
 }
 
-.cupon-body { padding:32px 36px; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start; background:#ddeefa; }
+.cupon-body { padding:32px 36px; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start; }
 
 .cupon-bullets { list-style:none; display:flex; flex-direction:column; gap:9px; }
-.cupon-bullets li { display:flex; align-items:flex-start; gap:9px; font-size:13px; color:#0a1a2a; font-weight:500; }
+.cupon-bullets li { display:flex; align-items:flex-start; gap:9px; font-size:13px; color:var(--g500); }
 .cb-check {
   width:18px; height:18px; border-radius:50%; flex-shrink:0;
   background:var(--green-lt); display:flex; align-items:center; justify-content:center;
@@ -573,7 +573,7 @@ nav.scrolled { box-shadow:var(--sh); }
 }
 #cupon-lock-state .cupon-code-box:hover { border-color:var(--cyan); background:var(--cyan-lt); }
 .ccb-lbl { font-size:9px; color:var(--g300); letter-spacing:1px; text-transform:uppercase; margin-bottom:5px; }
-.ccb-val { font-family:'DM Serif Display',serif; font-size:22px; color:var(--g100); letter-spacing:3px; }
+.ccb-val { font-family:'DM Serif Display',serif; font-size:22px; color:#0a1a2a; letter-spacing:3px; font-weight:800; }
 .ccb-cta { font-size:11px; color:var(--cyan); font-weight:700; margin-top:4px; }
 
 /* ESTADO: abierto */
@@ -587,10 +587,10 @@ nav.scrolled { box-shadow:var(--sh); }
 #cupon-open-state .ccb-lbl { color:rgba(255,255,255,.65); }
 #cupon-open-state .ccb-val { color:var(--cyan); }
 .cupon-copy-ok { display:none; font-size:10px; color:var(--green); font-weight:700; margin-top:3px; }
-.cupon-vence-info { font-size:11px; color:#1a3a4a; text-align:center; }
+.cupon-vence-info { font-size:11px; color:var(--g300); text-align:center; }
 .cupon-vence-info strong { color:var(--cyan); }
 
-.cupon-micro { font-size:12px; color:#1a3a4a; font-style:italic; margin-top:6px; }
+.cupon-micro { font-size:11px; color:var(--g300); font-style:italic; margin-top:6px; }
 
 @media(max-width:700px){ .cupon-body{grid-template-columns:1fr;} .ref-steps{grid-template-columns:1fr 1fr;} .ref-steps::before{display:none;} }
 
@@ -1415,7 +1415,7 @@ footer { background:var(--navy); padding:44px 0 22px; }
       </div>
       <div class="cupon-body">
         <div>
-          <p style="font-size:13px;color:#0a1a2a;line-height:1.75;margin-bottom:16px;">Puede ofrecer a su paciente una primera evaluación con 50% de descuento en CTH, facilitando su acceso al manejo especializado desde el inicio y aumentando la probabilidad de que continúe el tratamiento.</p>
+          <p style="font-size:13px;color:var(--g500);line-height:1.75;margin-bottom:16px;">Puede ofrecer a su paciente una primera evaluación con 50% de descuento en CTH, facilitando su acceso al manejo especializado desde el inicio y aumentando la probabilidad de que continúe el tratamiento.</p>
           <ul class="cupon-bullets">
             <li><div class="cb-check">✓</div>Facilita la decisión del paciente</li>
             <li><div class="cb-check">✓</div>Reduce la barrera de inicio del tratamiento</li>
