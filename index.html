@@ -804,7 +804,7 @@ nav.scrolled { box-shadow:var(--sh); }
 .marca-card {
   display:flex; flex-direction:column;
   align-items:center; justify-content:center;
-  gap:10px; padding:18px 12px 14px;
+  gap:0; padding:20px 12px;
   background:#fff; border-radius:12px;
   border:1px solid var(--g50);
   cursor:pointer; text-decoration:none;
@@ -998,8 +998,9 @@ footer { background:var(--navy); padding:44px 0 22px; }
 .toast.on { display:block; animation:fadeUp .3s ease; }
 @keyframes fadeUp { from{opacity:0;transform:translateX(-50%) translateY(8px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
 
+
 /* ═══════════════════════════════════════
-   MODALES DE PRODUCTOS POR MARCA
+   MODALES — LISTA DIRECTA DE PRODUCTOS
 ═══════════════════════════════════════ */
 .prod-modal-overlay {
   display:none; position:fixed; inset:0; z-index:9999;
@@ -1008,16 +1009,17 @@ footer { background:var(--navy); padding:44px 0 22px; }
 }
 .prod-modal-overlay.active { display:flex; }
 .prod-modal {
-  background:#fff; border-radius:16px; width:100%; max-width:520px;
-  max-height:80vh; overflow-y:auto; padding:28px 24px 24px;
+  background:#fff; border-radius:16px; width:100%; max-width:560px;
+  max-height:82vh; overflow-y:auto; padding:28px 24px 24px;
   box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 .prod-modal-header {
   display:flex; align-items:center; justify-content:space-between;
-  margin-bottom:18px;
+  margin-bottom:20px; padding-bottom:16px;
+  border-bottom:2px solid #f0f0f0;
 }
 .prod-modal-title {
-  font-family:'DM Serif Display',serif; font-size:20px;
+  font-family:'DM Serif Display',serif; font-size:22px;
   color:#0B2545; margin:0;
 }
 .prod-modal-close {
@@ -1026,22 +1028,43 @@ footer { background:var(--navy); padding:44px 0 22px; }
   transition:background .15s;
 }
 .prod-modal-close:hover { background:#f0f0f0; color:#333; }
-.prod-list { list-style:none; margin:0; padding:0; }
-.prod-list li { border-bottom:1px solid #f0f0f0; }
-.prod-list li:last-child { border-bottom:none; }
-.prod-list a {
-  display:flex; align-items:center; gap:10px; padding:11px 4px;
-  text-decoration:none; color:#1a3a5c; font-size:14px;
-  font-weight:500; transition:color .15s;
+.prod-nota {
+  font-size:12px; color:#888; font-style:italic;
+  border-left:3px solid #f0c040; padding:8px 10px;
+  margin-bottom:16px; background:#fffdf0; border-radius:0 6px 6px 0;
 }
-.prod-list a:hover { color:#00B4A6; }
-.prod-list a::before {
-  content:"📄"; font-size:16px; flex-shrink:0;
+/* Tarjeta por producto */
+.prod-card {
+  border:1px solid #eef0f3; border-radius:12px;
+  padding:16px; margin-bottom:12px;
 }
-.ml-link.btn-pdf {
-  cursor:pointer; background:none; border:none; padding:0;
+.prod-card:last-child { margin-bottom:0; }
+.prod-card-name {
+  font-size:15px; font-weight:700; color:#0B2545;
+  margin:0 0 8px;
 }
-
+.prod-card-desc {
+  font-size:13px; color:#555; line-height:1.6;
+  margin:0 0 12px;
+}
+.prod-card-desc p { margin:0 0 6px; }
+.prod-card-desc ul, .prod-card-desc ol {
+  margin:4px 0 6px 16px; padding:0;
+}
+.prod-card-desc li { margin-bottom:3px; }
+.prod-card-desc strong { color:#0B2545; }
+.prod-pdfs {
+  display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;
+}
+.prod-pdf-btn {
+  display:inline-flex; align-items:center; gap:5px;
+  background:#f0f7ff; color:#0B2545; font-size:11px; font-weight:600;
+  padding:6px 12px; border-radius:20px; text-decoration:none;
+  border:1px solid #d0e4f7;
+  transition:background .2s, color .2s;
+}
+.prod-pdf-btn:hover { background:#0B2545; color:#fff; }
+.prod-pdf-btn::before { content:"📄"; font-size:12px; }
 
 /* ═══════════════════════════════════════
    ACORDEÓN DE PRODUCTOS EN MODALES
@@ -1582,36 +1605,26 @@ footer { background:var(--navy); padding:44px 0 22px; }
             <a class="marca-card" onclick="openModal('covalon')" title="Ver productos Covalon">
               <img src="logo-covalon.png" alt="Covalon"
                    onerror="this.style.display='none'">
-              <span class="marca-card-name">Covalon</span>
-              <span class="marca-card-cta">Ver productos →</span>
             </a>
 
             <a class="marca-card" onclick="openModal('synkotech')" title="Ver productos Synkotech">
               <img src="synkotech.jpg" alt="Synkotech"
                    onerror="this.style.display='none'">
-              <span class="marca-card-name">Synkotech</span>
-              <span class="marca-card-cta">Ver productos →</span>
             </a>
 
             <a class="marca-card" onclick="openModal('soubeiran')" title="Ver productos Soubeiran Chobet">
               <img src="logo-soubeiran.png" alt="Soubeiran Chobet"
                    onerror="this.style.display='none'">
-              <span class="marca-card-name">Soubeiran Chobet</span>
-              <span class="marca-card-cta">Ver productos →</span>
             </a>
 
             <a class="marca-card" onclick="openModal('baihe')" title="Ver productos Baihe ABLE">
               <img src="Logo-baihe.png" alt="Baihe ABLE"
                    onerror="this.style.display='none'">
-              <span class="marca-card-name">Baihe · ABLE®</span>
-              <span class="marca-card-cta">Ver productos →</span>
             </a>
 
             <a class="marca-card" onclick="openModal('conkote')" title="Ver productos Conkote">
               <img src="conkote (1).png" alt="Conkote"
                    onerror="this.style.display='none'">
-              <span class="marca-card-name">Conkote</span>
-              <span class="marca-card-cta">Ver productos →</span>
             </a>
 
           </div>
@@ -1874,7 +1887,8 @@ function toast(m, d=2800){
 </script>
 
 
-<!-- MODALES DE PRODUCTOS CON ACORDEÓN -->
+
+<!-- MODALES DE PRODUCTOS -->
 
 <div class="prod-modal-overlay" id="modal-baihe" onclick="if(event.target===this)this.classList.remove('active')">
   <div class="prod-modal">
@@ -1883,64 +1897,26 @@ function toast(m, d=2800){
       <button class="prod-modal-close" onclick="document.getElementById('modal-baihe').classList.remove('active')">✕</button>
     </div>
     
-    <div class="prod-list">
-
-    <div class="prod-item" id="baihe-item-0">
-      <button class="prod-toggle" onclick="toggleProd('baihe-item-0')">
-        <span class="prod-toggle-name">Catéter de Hemodiálisis (HC)</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Diseñado para procedimientos de purificación de sangre, permite el acceso vascular necesario para la hemodiálisis.</p>
-<p><strong>¿Qué hace?</strong> Facilita el intercambio de sangre entre el paciente y la máquina de diálisis de manera segura y eficiente.</p>
-<p><strong>Componentes del Kit:</strong></p>
-<ul>
-  <li>Catéter de Hemodiálisis — dispositivo principal</li>
-  <li>Dilatador de Vasos Sanguíneos</li>
-  <li>Aguja Introductora y Jeringa</li>
-  <li>Alambre Guía</li>
-</ul>
-<p><strong>Modo de uso:</strong></p>
-<ol>
-  <li>Punción venosa con aguja introductora y jeringa.</li>
-  <li>Insertar el alambre guía a través de la aguja.</li>
-  <li>Retirar la aguja y dilatar el canal.</li>
-  <li>Deslizar el catéter sobre el alambre guía hasta posición final.</li>
-</ol></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1cvo1cIV145JaUckWje0TsIzeE7bfDeNZ/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">HC.pdf</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1ds_o6ImDLC6Ug5joTpVurktINJvHcAvl/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">HC (1).pdf</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/13w6ddWl3NOrFNvRgA0kL_UeYajVnP5Gi/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IFU HC</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1T-ZJTx7WSHwxcE-dUuQqp29RmaGAV_TF/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">Description HC</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1DWHbWNdmqcERPMMG6Y9LoVRuj8-fEOoJ/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">Description HC NITINOL</a>
-        </div>
-      </div>
+    
+    <div class="prod-card">
+      <p class="prod-card-name">Catéter de Hemodiálisis (HC)</p>
+      <div class="prod-card-desc"><p>Diseñado para acceso vascular en procedimientos de hemodiálisis.</p>
+<p><strong>¿Qué hace?</strong> Facilita el intercambio de sangre entre el paciente y la máquina de diálisis de forma segura.</p>
+<p><strong>Kit incluye:</strong> catéter, dilatador, aguja introductora, jeringa y alambre guía.</p>
+<p><strong>Técnica:</strong> Punción venosa → alambre guía → dilatación → posicionamiento del catéter.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1cvo1cIV145JaUckWje0TsIzeE7bfDeNZ/view?usp=sharing" target="_blank" rel="noopener">HC</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1ds_o6ImDLC6Ug5joTpVurktINJvHcAvl/view?usp=sharing" target="_blank" rel="noopener">HC (1)</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/13w6ddWl3NOrFNvRgA0kL_UeYajVnP5Gi/view?usp=sharing" target="_blank" rel="noopener">IFU HC</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1T-ZJTx7WSHwxcE-dUuQqp29RmaGAV_TF/view?usp=sharing" target="_blank" rel="noopener">Descripción HC</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1DWHbWNdmqcERPMMG6Y9LoVRuj8-fEOoJ/view?usp=sharing" target="_blank" rel="noopener">Descripción HC NITINOL</a></div>
     </div>
-    <div class="prod-item" id="baihe-item-1">
-      <button class="prod-toggle" onclick="toggleProd('baihe-item-1')">
-        <span class="prod-toggle-name">Catéter Venoso Central (CVC)</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Dispositivo para acceso venoso a largo plazo en pacientes críticos o con tratamientos prolongados.</p>
-<p><strong>¿Qué hace?</strong> Permite administrar medicamentos, fluidos, nutrición parenteral y tomar muestras de sangre de forma continua.</p>
-<p><strong>Modo de uso:</strong> Utiliza la técnica de Seldinger (punción, guía, dilatación y colocación) para acceder a venas de gran calibre como la yugular o la subclavia.</p></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1OJUZBAp9EqbOD4A7r0Ldqb5anD3IydWP/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">CVC.pdf</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/11bM33mSJ49cn5AH_oqQtQku7OKmHD-pU/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IFU CVC</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1Qs2K-7NqVDZLFaGG0kvd7_NEoGvVA_Gw/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">Technical Data CVC</a>
-        </div>
-      </div>
+    <div class="prod-card">
+      <p class="prod-card-name">Catéter Venoso Central (CVC)</p>
+      <div class="prod-card-desc"><p>Acceso venoso a largo plazo para pacientes críticos o con tratamientos prolongados.</p>
+<p><strong>¿Qué hace?</strong> Permite administrar medicamentos, fluidos, nutrición parenteral y tomar muestras de sangre.</p>
+<p><strong>Técnica Seldinger:</strong> acceso a venas de gran calibre (yugular, subclavia).</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1OJUZBAp9EqbOD4A7r0Ldqb5anD3IydWP/view?usp=sharing" target="_blank" rel="noopener">CVC</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/11bM33mSJ49cn5AH_oqQtQku7OKmHD-pU/view?usp=sharing" target="_blank" rel="noopener">IFU CVC</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1Qs2K-7NqVDZLFaGG0kvd7_NEoGvVA_Gw/view?usp=sharing" target="_blank" rel="noopener">Technical Data CVC</a></div>
     </div>
-    <div class="prod-item" id="baihe-item-2">
-      <button class="prod-toggle" onclick="toggleProd('baihe-item-2')">
-        <span class="prod-toggle-name">VerdProtect — Apósito de Inserción</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Apósito especializado para proteger sitios de inserción de catéteres y accesos vasculares.</p></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1o6kAjeyPGAXuo9ElLLLQm-BwXgRlaadU/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">VerdProtect INSERTO</a>
-        </div>
-      </div>
-    </div>
+    <div class="prod-card">
+      <p class="prod-card-name">VerdProtect — Apósito de Inserción</p>
+      <div class="prod-card-desc"><p>Apósito especializado para proteger sitios de inserción de catéteres y accesos vasculares.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1o6kAjeyPGAXuo9ElLLLQm-BwXgRlaadU/view?usp=sharing" target="_blank" rel="noopener">VerdProtect INSERTO</a></div>
     </div>
   </div>
 </div>
@@ -1950,67 +1926,25 @@ function toast(m, d=2800){
       <h3 class="prod-modal-title">Synkotech</h3>
       <button class="prod-modal-close" onclick="document.getElementById('modal-synkotech').classList.remove('active')">✕</button>
     </div>
-    <p class="prod-nota">⚠️ Todos estos productos son exclusivamente para uso externo. No aplicar directamente sobre lecho de heridas abiertas profundas, sino en bordes y piel circundante.</p>
-    <div class="prod-list">
-
-    <div class="prod-item" id="synkotech-item-0">
-      <button class="prod-toggle" onclick="toggleProd('synkotech-item-0')">
-        <span class="prod-toggle-name">SilkyBarrier — Spray y Toallitas Advanced</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Línea de barrera protectora avanzada con aplicación suave y efectiva.</p>
-<p><strong>¿Qué hace?</strong></p>
-<ul>
-  <li>Protección de larga duración contra irritantes químicos y biológicos.</li>
-  <li>Ideal para piel perilesional y zonas expuestas a humedad constante.</li>
-  <li>Versión Advanced (toallitas): aplicación precisa en zonas de difícil acceso.</li>
-</ul>
-<p><strong>Modo de uso:</strong></p>
-<ol>
-  <li>Limpiar y secar la zona afectada.</li>
-  <li>Aplicar con la toallita o el spray de forma homogénea.</li>
-  <li>Esperar unos segundos hasta que se forme la película protectora.</li>
-</ol></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1HZ6v7P-wghQr1mRRFTlemgha-c-7Lt5q/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IFU Silky Barrier</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/183Z4_6OewKgjwp2A3OLvZdkbQ1gNu6JP/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">Catálogo SilkyBarrier ES</a>
-        </div>
-      </div>
+    <p class="prod-nota">⚠️ Uso externo exclusivamente. No aplicar sobre lecho de heridas abiertas profundas — solo en bordes y piel circundante.</p>
+    
+    <div class="prod-card">
+      <p class="prod-card-name">SilkyBarrier — Spray y Toallitas Advanced</p>
+      <div class="prod-card-desc"><p>Barrera protectora de larga duración contra irritantes químicos y biológicos.</p>
+<p>Ideal para piel perilesional y zonas expuestas a humedad constante. La versión Advanced (toallita) permite aplicación precisa en zonas de difícil acceso.</p>
+<p><strong>Uso:</strong> Limpiar y secar → aplicar uniformemente → esperar que se forme la película protectora.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1HZ6v7P-wghQr1mRRFTlemgha-c-7Lt5q/view?usp=sharing" target="_blank" rel="noopener">IFU Silky Barrier</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/183Z4_6OewKgjwp2A3OLvZdkbQ1gNu6JP/view?usp=sharing" target="_blank" rel="noopener">Catálogo SilkyBarrier ES</a></div>
     </div>
-    <div class="prod-item" id="synkotech-item-1">
-      <button class="prod-toggle" onclick="toggleProd('synkotech-item-1')">
-        <span class="prod-toggle-name">LilaProtect — Spray y Stick</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Protección cutánea especializada que crea una interfaz física entre la piel y los agentes agresores externos.</p>
-<p><strong>¿Qué hace?</strong></p>
-<ul>
-  <li>Evita la maceración permitiendo que la piel respire mientras bloquea líquidos nocivos.</li>
-</ul>
-<p><strong>Modo de uso:</strong></p>
-<ul>
-  <li><strong>Stick:</strong> Aplicaciones localizadas, evita desperdicio de producto.</li>
-  <li><strong>Spray:</strong> Cubre áreas más extensas rápidamente.</li>
-  <li>Aplicar siempre sobre piel limpia y seca.</li>
-</ul></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1cLgh6Uv4fQexJDYpxA-5UZIMaORNcB_n/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">LilaProtect Stick Ficha ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/19zU5JLEBA3-oLcsa1DFQ4Q9m5rCfxXPZ/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">LilaProtect Spray Ficha ES</a>
-        </div>
-      </div>
+    <div class="prod-card">
+      <p class="prod-card-name">LilaProtect — Spray y Stick</p>
+      <div class="prod-card-desc"><p>Crea una interfaz física entre la piel y agentes externos agresores. Evita la maceración permitiendo que la piel respire.</p>
+<p><strong>Stick:</strong> aplicaciones localizadas. <strong>Spray:</strong> áreas extensas. Siempre sobre piel limpia y seca.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1cLgh6Uv4fQexJDYpxA-5UZIMaORNcB_n/view?usp=sharing" target="_blank" rel="noopener">LilaProtect Stick Ficha ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/19zU5JLEBA3-oLcsa1DFQ4Q9m5rCfxXPZ/view?usp=sharing" target="_blank" rel="noopener">LilaProtect Spray Ficha ES</a></div>
     </div>
-    <div class="prod-item" id="synkotech-item-2">
-      <button class="prod-toggle" onclick="toggleProd('synkotech-item-2')">
-        <span class="prod-toggle-name">VerdProtect — Catálogo</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Línea de protección de barrera avanzada para heridas y piel perilesional.</p></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1PJP2jKVtwJWytRj-NKxhZAnAuYf5tsJY/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">VerdProtect Catálogo ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1Brsrn20ojO7UPGziUejYW5F2gl7BJUx2/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">VerdProtect INSERTO</a>
-        </div>
-      </div>
-    </div>
+    <div class="prod-card">
+      <p class="prod-card-name">VerdProtect</p>
+      <div class="prod-card-desc"><p>Línea de protección de barrera avanzada para heridas y piel perilesional.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1PJP2jKVtwJWytRj-NKxhZAnAuYf5tsJY/view?usp=sharing" target="_blank" rel="noopener">Catálogo ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1Brsrn20ojO7UPGziUejYW5F2gl7BJUx2/view?usp=sharing" target="_blank" rel="noopener">INSERTO</a></div>
     </div>
   </div>
 </div>
@@ -2020,75 +1954,26 @@ function toast(m, d=2800){
       <h3 class="prod-modal-title">Soubeiran Chobet</h3>
       <button class="prod-modal-close" onclick="document.getElementById('modal-soubeiran').classList.remove('active')">✕</button>
     </div>
-    <p class="prod-nota">⚠️ Contraindicado en recién nacidos, mujeres al final del embarazo o personas con alergia a sulfonamidas. Siempre bajo supervisión profesional.</p>
-    <div class="prod-list">
-
-    <div class="prod-item" id="soubeiran-item-0">
-      <button class="prod-toggle" onclick="toggleProd('soubeiran-item-0')">
-        <span class="prod-toggle-name">Platsul A® — Crema</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Producto referente para el tratamiento de quemaduras, con acción antibacteriana y cicatrizante.</p>
-<p><strong>¿Qué hace?</strong></p>
-<ul>
-  <li><strong>Acción dual:</strong> Sulfadiazina de Plata + Vitamina A + Lidocaína (anestésico local).</li>
-  <li>Previene infección y acelera la formación de nuevo tejido cutáneo.</li>
-  <li>Alivia el dolor inmediatamente después de la aplicación.</li>
-</ul>
-<p><strong>Modo de uso:</strong></p>
-<ol>
-  <li>Limpiar la zona con solución salina estéril.</li>
-  <li>Aplicar capa de 2–3 mm directamente sobre la herida.</li>
-  <li>Cubrir con gasa estéril o dejar al aire según indicación médica.</li>
-  <li>Renovar 1–2 veces al día.</li>
-</ol></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1QXzsDK4r1tzuu5nAbuM4On0vo5KNOsSc/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">PLATSUL-A Crema</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1U7iKkRZF_GcxbWhnCu3_MDflNB6SgBuo/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">PLATSUL-A Aerosol</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1RaensPDgMPnR6QcCzncAwDyyz7IiQ4kE/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">Tríptico PLATSUL-A</a>
-        </div>
-      </div>
+    <p class="prod-nota">⚠️ Contraindicado en recién nacidos, embarazo avanzado y alergia a sulfonamidas. Siempre bajo supervisión profesional.</p>
+    
+    <div class="prod-card">
+      <p class="prod-card-name">Platsul A® — Crema</p>
+      <div class="prod-card-desc"><p>Referente en tratamiento de quemaduras. Combina Sulfadiazina de Plata + Vitamina A + Lidocaína.</p>
+<p>Previene infección, acelera la regeneración tisular y alivia el dolor inmediatamente.</p>
+<p><strong>Aplicación:</strong> Capa de 2–3 mm sobre herida limpia, 1–2 veces al día.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1QXzsDK4r1tzuu5nAbuM4On0vo5KNOsSc/view?usp=sharing" target="_blank" rel="noopener">PLATSUL-A Crema</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1U7iKkRZF_GcxbWhnCu3_MDflNB6SgBuo/view?usp=sharing" target="_blank" rel="noopener">PLATSUL-A Aerosol</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1RaensPDgMPnR6QcCzncAwDyyz7IiQ4kE/view?usp=sharing" target="_blank" rel="noopener">Tríptico</a></div>
     </div>
-    <div class="prod-item" id="soubeiran-item-1">
-      <button class="prod-toggle" onclick="toggleProd('soubeiran-item-1')">
-        <span class="prod-toggle-name">Platsul® Apósitos — Gasas No Tejidas</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Apósitos impregnados listos para usar, para manejo práctico y limpio de heridas.</p>
-<p><strong>¿Qué hace?</strong></p>
-<ul>
-  <li>Mantiene Sulfadiazina de Plata en contacto constante con la lesión.</li>
-  <li>No se adhiere al lecho de la herida — cambios de vendaje sin dolor ni trauma.</li>
-</ul>
-<p><strong>Modo de uso:</strong></p>
-<ol>
-  <li>Abrir envase estéril y retirar el apósito.</li>
-  <li>Colocar directamente sobre la herida limpia.</li>
-  <li>Fijar con vendaje secundario suave.</li>
-</ol></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1N7ljKPt1yftbR-fZfbNLU6carATont2K/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">PLATSUL Ficha</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1faM051aHJElq0si-wZ8vaelnRClofd6Q/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">Platsul Ag Díptico</a>
-        </div>
-      </div>
+    <div class="prod-card">
+      <p class="prod-card-name">Platsul® Apósitos — Gasas No Tejidas</p>
+      <div class="prod-card-desc"><p>Apósitos impregnados listos para usar. Mantienen Sulfadiazina de Plata en contacto constante con la lesión.</p>
+<p>No se adhieren al lecho de la herida — cambios de vendaje sin dolor ni trauma al tejido nuevo.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1N7ljKPt1yftbR-fZfbNLU6carATont2K/view?usp=sharing" target="_blank" rel="noopener">Ficha Técnica</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1faM051aHJElq0si-wZ8vaelnRClofd6Q/view?usp=sharing" target="_blank" rel="noopener">Platsul Ag Díptico</a></div>
     </div>
-    <div class="prod-item" id="soubeiran-item-2">
-      <button class="prod-toggle" onclick="toggleProd('soubeiran-item-2')">
-        <span class="prod-toggle-name">Línea de Regeneración Post-Quemadura</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Productos para la fase final de cicatrización orientados a mejorar la estética de la piel.</p>
-<p><strong>¿Qué hace?</strong></p>
-<ul>
-  <li>Aporta hidratación profunda y vitaminas esenciales.</li>
-  <li>Evita queloides y cicatrices hipertróficas.</li>
-  <li>Suaviza la textura de la piel recién formada.</li>
-</ul>
-<p><strong>Modo de uso:</strong> Aplicar con masajes suaves sobre la cicatriz cerrada, varias veces al día.</p></div>
-        
-      </div>
-    </div>
+    <div class="prod-card">
+      <p class="prod-card-name">Línea Regeneración Post-Quemadura</p>
+      <div class="prod-card-desc"><p>Para la fase final de cicatrización. Aporta hidratación profunda y vitaminas esenciales para evitar queloides y cicatrices hipertróficas.</p>
+<p>Aplicar con masajes suaves sobre cicatriz cerrada, varias veces al día.</p></div>
+      
     </div>
   </div>
 </div>
@@ -2099,129 +1984,39 @@ function toast(m, d=2800){
       <button class="prod-modal-close" onclick="document.getElementById('modal-covalon').classList.remove('active')">✕</button>
     </div>
     
-    <div class="prod-list">
-
-    <div class="prod-item" id="covalon-item-0">
-      <button class="prod-toggle" onclick="toggleProd('covalon-item-0')">
-        <span class="prod-toggle-name">ColActive® PLUS y PLUS Ag</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Apósito de matriz avanzada (Colágeno + CMC + Alginato) que reactiva el proceso de cicatrización.</p>
-<p><strong>¿Qué hace?</strong></p>
-<ul>
-  <li>Reactiva el lecho de la herida — supera la fase inflamatoria en heridas estancadas.</li>
-  <li>Controla el exceso de Metaloproteasas (MMPs) que impiden la cicatrización.</li>
-  <li><strong>Versión Ag:</strong> Barrera antimicrobiana de amplio espectro.</li>
-</ul>
-<p><strong>Modo de uso:</strong></p>
-<ol>
-  <li>Limpiar la herida con solución salina.</li>
-  <li>Aplicar directamente sobre el lecho. Puede recortarse.</li>
-  <li>Si hay poco exudado, humedecer ligeramente el apósito.</li>
-  <li>Cubrir con apósito secundario (CovaWound).</li>
-</ol></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1ZY2_REHPbo0QlvYpabJS3ut5aWSKeaPh/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">ColActive Plus PI ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1jNx0Bp22Ac0u1JZxVsXCZ24cbpVojYI4/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">ColActive Plus Ag PI ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1s6Hs6gy0gNdMIs9g_RsQ4gE6LI7lPWRs/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">Díptico ColActive PLUS</a>
-        </div>
-      </div>
+    
+    <div class="prod-card">
+      <p class="prod-card-name">ColActive® PLUS y PLUS Ag</p>
+      <div class="prod-card-desc"><p>Apósito de matriz avanzada (Colágeno + CMC + Alginato) que reactiva el proceso de cicatrización en heridas estancadas.</p>
+<p>Controla el exceso de MMPs. <strong>Versión Ag:</strong> barrera antimicrobiana de amplio espectro.</p>
+<p><strong>Uso:</strong> Limpiar → aplicar sobre lecho → humedecer si hay poco exudado → cubrir con CovaWound.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1ZY2_REHPbo0QlvYpabJS3ut5aWSKeaPh/view?usp=sharing" target="_blank" rel="noopener">ColActive Plus PI ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1jNx0Bp22Ac0u1JZxVsXCZ24cbpVojYI4/view?usp=sharing" target="_blank" rel="noopener">ColActive Plus Ag PI ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1s6Hs6gy0gNdMIs9g_RsQ4gE6LI7lPWRs/view?usp=sharing" target="_blank" rel="noopener">Díptico ColActive</a></div>
     </div>
-    <div class="prod-item" id="covalon-item-1">
-      <button class="prod-toggle" onclick="toggleProd('covalon-item-1')">
-        <span class="prod-toggle-name">IV Clear®</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Apósito transparente de silicona con tecnología antimicrobiana dual (Clorhexidina + Plata) en el adhesivo.</p>
-<p><strong>¿Qué hace?</strong></p>
-<ul>
-  <li>Protege sitios de inserción de catéteres (CVC, PICC, diálisis).</li>
-  <li>Transparencia total — monitoreo sin retirar el apósito.</li>
-  <li>Adhesivo de silicona — reduce trauma en pieles frágiles.</li>
-</ul>
-<p><strong>Modo de uso:</strong></p>
-<ol>
-  <li>Limpiar y secar el área pericatéter.</li>
-  <li>Centrar la zona transparente sobre el punto de inserción.</li>
-  <li>Presionar suavemente. Efectivo hasta 7 días.</li>
-</ol></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1eX3dAWyA7XrobvB_hHQIChMoH009zJCV/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IV Clear Product Info ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/11Yjt9SUlQHyaX5Icg3RiXu6ZTkzs4MF_/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IV Clear App Inst TWBD1020</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1vhotE6ubCK3eNrVbZGpqycMkZynnieT2/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IV Clear App Inst TWBD1014</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/13dR69_Sg2cd86-pIeCynBBn3EHo2yUOF/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">Díptico Líneas Clear</a>
-        </div>
-      </div>
+    <div class="prod-card">
+      <p class="prod-card-name">IV Clear®</p>
+      <div class="prod-card-desc"><p>Apósito transparente de silicona con tecnología antimicrobiana dual (Clorhexidina + Plata). Protege sitios de inserción de catéteres.</p>
+<p>Visibilidad total sin retirar el apósito. Adhesivo de silicona — mínimo trauma en pieles frágiles. Efectivo hasta 7 días.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1eX3dAWyA7XrobvB_hHQIChMoH009zJCV/view?usp=sharing" target="_blank" rel="noopener">Product Info ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/11Yjt9SUlQHyaX5Icg3RiXu6ZTkzs4MF_/view?usp=sharing" target="_blank" rel="noopener">App Inst TWBD1020</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1vhotE6ubCK3eNrVbZGpqycMkZynnieT2/view?usp=sharing" target="_blank" rel="noopener">App Inst TWBD1014</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/13dR69_Sg2cd86-pIeCynBBn3EHo2yUOF/view?usp=sharing" target="_blank" rel="noopener">Díptico Líneas Clear</a></div>
     </div>
-    <div class="prod-item" id="covalon-item-2">
-      <button class="prod-toggle" onclick="toggleProd('covalon-item-2')">
-        <span class="prod-toggle-name">CovaWound™ — Espuma de Poliuretano</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Apósitos de espuma para gestión óptima de fluidos en heridas.</p>
-<p><strong>¿Qué hace?</strong></p>
-<ul>
-  <li>Absorción superior — mantiene ambiente húmedo óptimo.</li>
-  <li>Actúa como cojín protector contra presión y fricción.</li>
-  <li>Capa exterior impermeable a líquidos y bacterias, pero permeable a gases.</li>
-</ul>
-<p><strong>Modo de uso:</strong></p>
-<ol>
-  <li>Elegir tamaño que sobrepase los bordes al menos 2 cm.</li>
-  <li>Colocar lado absorbente sobre la herida.</li>
-  <li>Fijar con cinta médica o vendaje si el modelo no es adhesivo.</li>
-</ol></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1dmtOQX8cLKzlV2xYGP6kqjIyel-fdQsN/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">CovaWound Foam PI ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1FOR9u29IRui71GaShLKfFLawlUms-ZZ9/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">CovaWound Foam Border PI ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1QE2zPWhxUarnvEGymRuOv82iFYyCJ91p/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">CovaWound Silicone PI ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1WdJeyqwTp7odcMvVRcMCKsbqhfUToo70/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">CovaWound Silicone Border PI ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1WPOWpCSh_AdqZkX1fw9ik6zKPCeVncZO/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">CovaWound Hydrocolloid PI ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1JjhfboHPY73jIfSyB9VNpiniDE5BU3Ge/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">CovaWound Hydrocolloid Border PI ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1a2xKRQ8oodOONuMaJP6qcVZU9nq41ilx/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">CovaWound Alginate PI ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1CA-dAlSnYJJsIn4ebXRS0TJ-t24VFcbt/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">CovaWound Alginate Ag PI ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/13JdktzvaILO5ULMBBmigMJWB4x8KTP2P/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">CovaWound SuperAbsorbent PI ES</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/1R1LDvvSqz-o0XYuoP-iTcZMeCkCiB6FS/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">Díptico CovaWound</a>
-        </div>
-      </div>
+    <div class="prod-card">
+      <p class="prod-card-name">CovaWound™ — Espuma de Poliuretano</p>
+      <div class="prod-card-desc"><p>Apósitos de espuma para gestión óptima de fluidos. Absorción superior manteniendo ambiente húmedo ideal.</p>
+<p>Protección contra presión y fricción. Capa exterior impermeable a líquidos y bacterias, permeable a gases.</p>
+<p><strong>Uso:</strong> Tamaño que supere 2 cm los bordes → lado absorbente sobre la herida → fijar si no es adhesivo.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1dmtOQX8cLKzlV2xYGP6kqjIyel-fdQsN/view?usp=sharing" target="_blank" rel="noopener">Foam PI ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1FOR9u29IRui71GaShLKfFLawlUms-ZZ9/view?usp=sharing" target="_blank" rel="noopener">Foam Border PI ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1QE2zPWhxUarnvEGymRuOv82iFYyCJ91p/view?usp=sharing" target="_blank" rel="noopener">Silicone PI ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1WdJeyqwTp7odcMvVRcMCKsbqhfUToo70/view?usp=sharing" target="_blank" rel="noopener">Silicone Border PI ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1WPOWpCSh_AdqZkX1fw9ik6zKPCeVncZO/view?usp=sharing" target="_blank" rel="noopener">Hydrocolloid PI ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1JjhfboHPY73jIfSyB9VNpiniDE5BU3Ge/view?usp=sharing" target="_blank" rel="noopener">Hydrocolloid Border PI ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1a2xKRQ8oodOONuMaJP6qcVZU9nq41ilx/view?usp=sharing" target="_blank" rel="noopener">Alginate PI ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1CA-dAlSnYJJsIn4ebXRS0TJ-t24VFcbt/view?usp=sharing" target="_blank" rel="noopener">Alginate Ag PI ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/13JdktzvaILO5ULMBBmigMJWB4x8KTP2P/view?usp=sharing" target="_blank" rel="noopener">SuperAbsorbent PI ES</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1R1LDvvSqz-o0XYuoP-iTcZMeCkCiB6FS/view?usp=sharing" target="_blank" rel="noopener">Díptico CovaWound</a></div>
     </div>
-    <div class="prod-item" id="covalon-item-3">
-      <button class="prod-toggle" onclick="toggleProd('covalon-item-3')">
-        <span class="prod-toggle-name">SurgiClear®</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Barrera antimicrobiana transparente para incisiones quirúrgicas.</p>
-<p><strong>¿Qué hace?</strong></p>
-<ul>
-  <li>Previene Infecciones de Sitio Quirúrgico (ISQ) con liberación constante de Plata y Clorhexidina.</li>
-  <li>Protege la sutura mientras permite que la piel respire.</li>
-</ul>
-<p><strong>Modo de uso:</strong></p>
-<ol>
-  <li>Aplicar sobre incisión limpia y seca inmediatamente tras el cierre quirúrgico.</li>
-  <li>Asegurar que no queden burbujas para garantizar el contacto antimicrobiano total.</li>
-</ol></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1hktEu2yoDxnsf4FLg4O6_zTVXuYrxQ8d/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">SurgiClear Product Info ES</a>
-        </div>
-      </div>
+    <div class="prod-card">
+      <p class="prod-card-name">SurgiClear®</p>
+      <div class="prod-card-desc"><p>Barrera antimicrobiana transparente para incisiones quirúrgicas. Previene ISQ con liberación constante de Plata y Clorhexidina.</p>
+<p>Aplicar sobre incisión limpia y seca inmediatamente tras el cierre quirúrgico. Sin burbujas para contacto total.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1hktEu2yoDxnsf4FLg4O6_zTVXuYrxQ8d/view?usp=sharing" target="_blank" rel="noopener">Product Info ES</a></div>
     </div>
-    <div class="prod-item" id="covalon-item-4">
-      <button class="prod-toggle" onclick="toggleProd('covalon-item-4')">
-        <span class="prod-toggle-name">MediClear™ — Pre-Op y Post-Op</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Películas adhesivas transparentes para uso perioperatorio.</p>
-<p><strong>¿Qué hace?</strong></p>
-<ul>
-  <li><strong>Pre-Op:</strong> Asegura campos quirúrgicos y mantiene el área estéril.</li>
-  <li><strong>Post-Op:</strong> Protege heridas cerradas — el paciente puede ducharse sin comprometer la herida.</li>
-</ul>
-<p><strong>Modo de uso:</strong> Aplicar sobre piel seca y limpia. Retiro sencillo sin residuos gracias a tecnología de silicona.</p></div>
-        
-      </div>
-    </div>
+    <div class="prod-card">
+      <p class="prod-card-name">MediClear™ — Pre-Op y Post-Op</p>
+      <div class="prod-card-desc"><p><strong>Pre-Op:</strong> Asegura campos quirúrgicos y mantiene el área estéril.<br>
+<strong>Post-Op:</strong> Protege heridas cerradas — el paciente puede ducharse sin comprometer la cicatrización.</p>
+<p>Retiro sencillo sin residuos gracias a tecnología de silicona Covalon.</p></div>
+      
     </div>
   </div>
 </div>
@@ -2231,91 +2026,42 @@ function toast(m, d=2800){
       <h3 class="prod-modal-title">Conkote</h3>
       <button class="prod-modal-close" onclick="document.getElementById('modal-conkote').classList.remove('active')">✕</button>
     </div>
-    <p class="prod-nota">⚠️ Preparar siempre la herida con solución salina antes de aplicar. No usar en personas con sensibilidad conocida a componentes (plata, poliuretano). Tiempo de uso: 24 horas a 7 días según nivel de exudado.</p>
-    <div class="prod-list">
-
-    <div class="prod-item" id="conkote-item-0">
-      <button class="prod-toggle" onclick="toggleProd('conkote-item-0')">
-        <span class="prod-toggle-name">Apósitos de Hidrocoloide</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Apósitos que interactúan con el exudado de la herida para formar un gel protector.</p>
-<p><strong>Uso:</strong> Heridas con exudado ligero a moderado — úlceras por presión superficiales, quemaduras menores y abrasiones.</p>
-<p><strong>Variante Gel Bandages:</strong> Diseñados para ampollas y heridas pequeñas, proporcionan amortiguación y alivio del dolor.</p></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1jOsXFZdDvvXBQDOGEuxxKT15heRbaY-U/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IFU Hydrocolloid Dressing</a>
-        <a class="prod-pdf-btn" href="https://drive.google.com/file/d/13eH4yTE_asxduB3fhK63GudTPp1LN9qA/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IFU Hydrocolloid Gel Bandages</a>
-        </div>
-      </div>
+    <p class="prod-nota">⚠️ Limpiar siempre con solución salina antes de aplicar. No usar con sensibilidad conocida a plata o poliuretano. Duración: 24 horas a 7 días según exudado.</p>
+    
+    <div class="prod-card">
+      <p class="prod-card-name">Apósitos de Hidrocoloide</p>
+      <div class="prod-card-desc"><p>Interactúan con el exudado para formar un gel protector. Para heridas con exudado ligero a moderado: úlceras por presión superficiales, quemaduras menores y abrasiones.</p><p><strong>Gel Bandages:</strong> para ampollas y heridas pequeñas — amortiguación y alivio del dolor.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1jOsXFZdDvvXBQDOGEuxxKT15heRbaY-U/view?usp=sharing" target="_blank" rel="noopener">IFU Hydrocolloid Dressing</a><a class="prod-pdf-btn" href="https://drive.google.com/file/d/13eH4yTE_asxduB3fhK63GudTPp1LN9qA/view?usp=sharing" target="_blank" rel="noopener">IFU Hydrocolloid Gel Bandages</a></div>
     </div>
-    <div class="prod-item" id="conkote-item-1">
-      <button class="prod-toggle" onclick="toggleProd('conkote-item-1')">
-        <span class="prod-toggle-name">Hidrogel — Amorfo y en Lámina</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Proporciona humedad a heridas secas o necróticas para facilitar el desbridamiento autolítico.</p>
-<p><strong>Aplicación:</strong> Úlceras de pierna, úlceras por presión y heridas quirúrgicas que requieren ambiente húmedo constante.</p></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1VIIz7F7V12GZrjyzRptReDt6mR_EFyVY/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IFU Hydrogel</a>
-        </div>
-      </div>
+    <div class="prod-card">
+      <p class="prod-card-name">Hidrogel — Amorfo y en Lámina</p>
+      <div class="prod-card-desc"><p>Proporciona humedad a heridas secas o necróticas para facilitar el desbridamiento autolítico. Indicado en úlceras de pierna, úlceras por presión y heridas quirúrgicas.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1VIIz7F7V12GZrjyzRptReDt6mR_EFyVY/view?usp=sharing" target="_blank" rel="noopener">IFU Hydrogel</a></div>
     </div>
-    <div class="prod-item" id="conkote-item-2">
-      <button class="prod-toggle" onclick="toggleProd('conkote-item-2')">
-        <span class="prod-toggle-name">Alginato de Plata (Silver Alginate)</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Apósito altamente absorbente con acción antimicrobiana por plata iónica.</p>
-<p><strong>Indicaciones:</strong> Heridas infectadas o con alto riesgo de infección con exudado moderado a abundante. Al absorber líquido, se convierte en gel suave.</p></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/17sWwT2npavAOcby4zbFfyslBDyl2aa9t/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IFU Silver Alginate Dressing</a>
-        </div>
-      </div>
+    <div class="prod-card">
+      <p class="prod-card-name">Alginato de Plata (Silver Alginate)</p>
+      <div class="prod-card-desc"><p>Altamente absorbente con acción antimicrobiana por plata iónica. Para heridas infectadas o con alto riesgo de infección con exudado moderado a abundante. Al absorber líquido se convierte en gel suave.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/17sWwT2npavAOcby4zbFfyslBDyl2aa9t/view?usp=sharing" target="_blank" rel="noopener">IFU Silver Alginate</a></div>
     </div>
-    <div class="prod-item" id="conkote-item-3">
-      <button class="prod-toggle" onclick="toggleProd('conkote-item-3')">
-        <span class="prod-toggle-name">Gasa de Vaselina (Vaseline Gauze)</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Gasa de malla fina impregnada con vaselina blanca. Actúa como capa no adherente.</p>
-<p><strong>Ideal para:</strong> Sitios de injertos, quemaduras menores y heridas quirúrgicas donde el apósito secundario no debe pegarse a la herida.</p></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1fybZt2JtT89KrtTYVv7fhq0tc5uGBOXQ/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IFU Vaseline Gauze</a>
-        </div>
-      </div>
+    <div class="prod-card">
+      <p class="prod-card-name">Gasa de Vaselina</p>
+      <div class="prod-card-desc"><p>Gasa de malla fina impregnada con vaselina blanca. Capa no adherente ideal para injertos, quemaduras menores y heridas quirúrgicas.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1fybZt2JtT89KrtTYVv7fhq0tc5uGBOXQ/view?usp=sharing" target="_blank" rel="noopener">IFU Vaseline Gauze</a></div>
     </div>
-    <div class="prod-item" id="conkote-item-4">
-      <button class="prod-toggle" onclick="toggleProd('conkote-item-4')">
-        <span class="prod-toggle-name">Apósito Adhesivo No-Tejido con Almohadilla</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Para cuidado postoperatorio estándar y heridas agudas (cortes, laceraciones).</p>
-<p>Almohadilla central absorbente no adherente + soporte de tela no tejida transpirable y flexible.</p></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/17E9zmFDlci34ukiVPuxGjyYDXv-mS0lZ/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">IFU Non-woven Adhesive Wound Dressing</a>
-        </div>
-      </div>
+    <div class="prod-card">
+      <p class="prod-card-name">Apósito Adhesivo No-Tejido con Almohadilla</p>
+      <div class="prod-card-desc"><p>Para cuidado postoperatorio y heridas agudas (cortes, laceraciones). Almohadilla central absorbente no adherente + soporte transpirable y flexible.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/17E9zmFDlci34ukiVPuxGjyYDXv-mS0lZ/view?usp=sharing" target="_blank" rel="noopener">IFU Non-woven Adhesive</a></div>
     </div>
-    <div class="prod-item" id="conkote-item-5">
-      <button class="prod-toggle" onclick="toggleProd('conkote-item-5')">
-        <span class="prod-toggle-name">Catálogo Completo Conkote</span>
-        <span class="prod-toggle-arrow">▼</span>
-      </button>
-      <div class="prod-body">
-        <div class="prod-desc"><p>Línea completa de apósitos para el manejo avanzado de heridas.</p></div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1050KHRQDssbVrcjHGZYWn-iaGqid7F-G/view?usp=sharing" target="_blank" rel="noopener" style="margin:4px 6px 4px 0;">Conkote Catálogo Español</a>
-        </div>
-      </div>
-    </div>
+    <div class="prod-card">
+      <p class="prod-card-name">Catálogo Completo</p>
+      <div class="prod-card-desc"><p>Línea completa de apósitos Conkote para el manejo avanzado de heridas.</p></div>
+      <div class="prod-pdfs"><a class="prod-pdf-btn" href="https://drive.google.com/file/d/1050KHRQDssbVrcjHGZYWn-iaGqid7F-G/view?usp=sharing" target="_blank" rel="noopener">Catálogo Español</a></div>
     </div>
   </div>
 </div>
 <script>
 function openModal(id){ document.getElementById('modal-'+id).classList.add('active'); }
-function toggleProd(id){
-  var el = document.getElementById(id);
-  el.classList.toggle('open');
-}
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape') document.querySelectorAll('.prod-modal-overlay.active').forEach(function(m){ m.classList.remove('active'); });
 });
