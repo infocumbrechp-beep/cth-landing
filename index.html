@@ -949,6 +949,51 @@ footer { background:var(--navy); padding:44px 0 22px; }
 .toast { display:none; position:fixed; bottom:28px; left:50%; transform:translateX(-50%); background:var(--navy); color:white; padding:10px 22px; border-radius:100px; font-size:12px; font-weight:600; z-index:300; white-space:nowrap; box-shadow:0 4px 20px rgba(0,0,0,.28); }
 .toast.on { display:block; animation:fadeUp .3s ease; }
 @keyframes fadeUp { from{opacity:0;transform:translateX(-50%) translateY(8px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
+
+/* ═══════════════════════════════════════
+   MODALES DE PRODUCTOS POR MARCA
+═══════════════════════════════════════ */
+.prod-modal-overlay {
+  display:none; position:fixed; inset:0; z-index:9999;
+  background:rgba(0,0,0,.55); backdrop-filter:blur(4px);
+  align-items:center; justify-content:center; padding:20px;
+}
+.prod-modal-overlay.active { display:flex; }
+.prod-modal {
+  background:#fff; border-radius:16px; width:100%; max-width:520px;
+  max-height:80vh; overflow-y:auto; padding:28px 24px 24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+.prod-modal-header {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:18px;
+}
+.prod-modal-title {
+  font-family:'DM Serif Display',serif; font-size:20px;
+  color:#0B2545; margin:0;
+}
+.prod-modal-close {
+  background:none; border:none; cursor:pointer; font-size:22px;
+  color:#888; line-height:1; padding:4px 8px; border-radius:6px;
+  transition:background .15s;
+}
+.prod-modal-close:hover { background:#f0f0f0; color:#333; }
+.prod-list { list-style:none; margin:0; padding:0; }
+.prod-list li { border-bottom:1px solid #f0f0f0; }
+.prod-list li:last-child { border-bottom:none; }
+.prod-list a {
+  display:flex; align-items:center; gap:10px; padding:11px 4px;
+  text-decoration:none; color:#1a3a5c; font-size:14px;
+  font-weight:500; transition:color .15s;
+}
+.prod-list a:hover { color:#00B4A6; }
+.prod-list a::before {
+  content:"📄"; font-size:16px; flex-shrink:0;
+}
+.ml-link.btn-pdf {
+  cursor:pointer; background:none; border:none; padding:0;
+}
+
 </style>
 </head>
 <body>
@@ -1440,27 +1485,27 @@ footer { background:var(--navy); padding:44px 0 22px; }
         <div class="marcas-area">
           <div class="marcas-lbl">Marcas internacionales · Distribuidor exclusivo Medical Shields MS, C.A.</div>
           <div class="marcas-row">
-            <a class="ml-link" href="https://cuidamostuherida.com/collections/covawound" target="_blank" title="Ver productos Covalon">
+            <a class="ml-link" onclick="openModal('covalon')" title="Ver productos Covalon" style="cursor:pointer;">
               <img src="logo-covalon.png" alt="Covalon"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
               <span class="ml-t" style="display:none;">Covalon</span>
             </a>
-            <a class="ml-link ml-dark" href="https://www.synkotechbio.com" target="_blank" title="Ver Synkotech">
+            <a class="ml-link ml-dark" onclick="openModal('synkotech')" title="Ver productos Synkotech" style="cursor:pointer;">
               <img src="synkotech.jpg" alt="Synkotech"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
               <span class="ml-t" style="display:none;">Synkotech</span>
             </a>
-            <a class="ml-link ml-dark" href="https://cuidamostuherida.com/collections/platsul" target="_blank" title="Ver productos Soubeiran Chobet">
+            <a class="ml-link ml-dark" onclick="openModal('soubeiran')" title="Ver productos Soubeiran" style="cursor:pointer;">
               <img src="logo-soubeiran.png" alt="Soubeiran Chobet"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
               <span class="ml-t" style="display:none;">Soubeiran</span>
             </a>
-            <a class="ml-link ml-dark" href="https://www.conkote.com" target="_blank" title="Ver Baihe ABLE">
+            <a class="ml-link ml-dark" onclick="openModal('baihe')" title="Ver productos Baihe ABLE" style="cursor:pointer;">
               <img src="Logo-baihe.png" alt="Baihe"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
               <span class="ml-t" style="display:none;">Baihe</span>
             </a>
-            <a class="ml-link ml-dark" href="https://www.conkote.com" target="_blank" title="Ver Conkote">
+            <a class="ml-link ml-dark" onclick="openModal('conkote')" title="Ver productos Conkote" style="cursor:pointer;">
               <img src="conkote (1).png" alt="Conkote"
                    onerror="this.style.display='none'">
               <span class="ml-t" style="display:none;">Conkote</span>
@@ -1723,5 +1768,113 @@ function toast(m, d=2800){
   setTimeout(() => el.classList.remove('on'), d);
 }
 </script>
+
+<!-- MODALES DE PRODUCTOS -->
+
+<div class="prod-modal-overlay" id="modal-baihe" onclick="if(event.target===this)this.classList.remove('active')">
+  <div class="prod-modal">
+    <div class="prod-modal-header">
+      <h3 class="prod-modal-title">Baihe · ABLE®</h3>
+      <button class="prod-modal-close" onclick="document.getElementById('modal-baihe').classList.remove('active')">✕</button>
+    </div>
+    <ul class="prod-list">
+          <li><a href="https://drive.google.com/file/d/1cvo1cIV145JaUckWje0TsIzeE7bfDeNZ/view?usp=sharing" target="_blank" rel="noopener">HC</a></li>
+          <li><a href="https://drive.google.com/file/d/1ds_o6ImDLC6Ug5joTpVurktINJvHcAvl/view?usp=sharing" target="_blank" rel="noopener">HC (1)</a></li>
+          <li><a href="https://drive.google.com/file/d/1OJUZBAp9EqbOD4A7r0Ldqb5anD3IydWP/view?usp=sharing" target="_blank" rel="noopener">CVC</a></li>
+          <li><a href="https://drive.google.com/file/d/11bM33mSJ49cn5AH_oqQtQku7OKmHD-pU/view?usp=sharing" target="_blank" rel="noopener">IFU CVC</a></li>
+          <li><a href="https://drive.google.com/file/d/1Qs2K-7NqVDZLFaGG0kvd7_NEoGvVA_Gw/view?usp=sharing" target="_blank" rel="noopener">Technical Data CVC</a></li>
+          <li><a href="https://drive.google.com/file/d/13w6ddWl3NOrFNvRgA0kL_UeYajVnP5Gi/view?usp=sharing" target="_blank" rel="noopener">IFU HC</a></li>
+          <li><a href="https://drive.google.com/file/d/1T-ZJTx7WSHwxcE-dUuQqp29RmaGAV_TF/view?usp=sharing" target="_blank" rel="noopener">Description HC</a></li>
+          <li><a href="https://drive.google.com/file/d/1DWHbWNdmqcERPMMG6Y9LoVRuj8-fEOoJ/view?usp=sharing" target="_blank" rel="noopener">Description HC NITINOL</a></li>
+          <li><a href="https://drive.google.com/file/d/1o6kAjeyPGAXuo9ElLLLQm-BwXgRlaadU/view?usp=sharing" target="_blank" rel="noopener">VerdProtect INSERTO</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="prod-modal-overlay" id="modal-synkotech" onclick="if(event.target===this)this.classList.remove('active')">
+  <div class="prod-modal">
+    <div class="prod-modal-header">
+      <h3 class="prod-modal-title">Synkotech</h3>
+      <button class="prod-modal-close" onclick="document.getElementById('modal-synkotech').classList.remove('active')">✕</button>
+    </div>
+    <ul class="prod-list">
+          <li><a href="https://drive.google.com/file/d/1Brsrn20ojO7UPGziUejYW5F2gl7BJUx2/view?usp=sharing" target="_blank" rel="noopener">VerdProtect INSERTO</a></li>
+          <li><a href="https://drive.google.com/file/d/1HZ6v7P-wghQr1mRRFTlemgha-c-7Lt5q/view?usp=sharing" target="_blank" rel="noopener">IFU Silky Barrier</a></li>
+          <li><a href="https://drive.google.com/file/d/183Z4_6OewKgjwp2A3OLvZdkbQ1gNu6JP/view?usp=sharing" target="_blank" rel="noopener">Catálogo SilkyBarrier Español</a></li>
+          <li><a href="https://drive.google.com/file/d/1cLgh6Uv4fQexJDYpxA-5UZIMaORNcB_n/view?usp=sharing" target="_blank" rel="noopener">LilaProtect Stick Ficha Técnica ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1PJP2jKVtwJWytRj-NKxhZAnAuYf5tsJY/view?usp=sharing" target="_blank" rel="noopener">VerdProtect Catálogo Español</a></li>
+          <li><a href="https://drive.google.com/file/d/19zU5JLEBA3-oLcsa1DFQ4Q9m5rCfxXPZ/view?usp=sharing" target="_blank" rel="noopener">LilaProtect Spray Ficha Técnica ES</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="prod-modal-overlay" id="modal-soubeiran" onclick="if(event.target===this)this.classList.remove('active')">
+  <div class="prod-modal">
+    <div class="prod-modal-header">
+      <h3 class="prod-modal-title">Soubeiran Chobet</h3>
+      <button class="prod-modal-close" onclick="document.getElementById('modal-soubeiran').classList.remove('active')">✕</button>
+    </div>
+    <ul class="prod-list">
+          <li><a href="https://drive.google.com/file/d/1QXzsDK4r1tzuu5nAbuM4On0vo5KNOsSc/view?usp=sharing" target="_blank" rel="noopener">PLATSUL-A Crema Tópica</a></li>
+          <li><a href="https://drive.google.com/file/d/1U7iKkRZF_GcxbWhnCu3_MDflNB6SgBuo/view?usp=sharing" target="_blank" rel="noopener">PLATSUL-A Aerosol</a></li>
+          <li><a href="https://drive.google.com/file/d/1N7ljKPt1yftbR-fZfbNLU6carATont2K/view?usp=sharing" target="_blank" rel="noopener">PLATSUL Ficha</a></li>
+          <li><a href="https://drive.google.com/file/d/1RaensPDgMPnR6QcCzncAwDyyz7IiQ4kE/view?usp=sharing" target="_blank" rel="noopener">Tríptico PLATSUL-A</a></li>
+          <li><a href="https://drive.google.com/file/d/1faM051aHJElq0si-wZ8vaelnRClofd6Q/view?usp=sharing" target="_blank" rel="noopener">Platsul Ag Díptico</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="prod-modal-overlay" id="modal-covalon" onclick="if(event.target===this)this.classList.remove('active')">
+  <div class="prod-modal">
+    <div class="prod-modal-header">
+      <h3 class="prod-modal-title">Covalon</h3>
+      <button class="prod-modal-close" onclick="document.getElementById('modal-covalon').classList.remove('active')">✕</button>
+    </div>
+    <ul class="prod-list">
+          <li><a href="https://drive.google.com/file/d/13dR69_Sg2cd86-pIeCynBBn3EHo2yUOF/view?usp=sharing" target="_blank" rel="noopener">Díptico Líneas Clear</a></li>
+          <li><a href="https://drive.google.com/file/d/1R1LDvvSqz-o0XYuoP-iTcZMeCkCiB6FS/view?usp=sharing" target="_blank" rel="noopener">Díptico CovaWound</a></li>
+          <li><a href="https://drive.google.com/file/d/1s6Hs6gy0gNdMIs9g_RsQ4gE6LI7lPWRs/view?usp=sharing" target="_blank" rel="noopener">Díptico ColActive PLUS</a></li>
+          <li><a href="https://drive.google.com/file/d/1hktEu2yoDxnsf4FLg4O6_zTVXuYrxQ8d/view?usp=sharing" target="_blank" rel="noopener">SurgiClear Product Info ES</a></li>
+          <li><a href="https://drive.google.com/file/d/11Yjt9SUlQHyaX5Icg3RiXu6ZTkzs4MF_/view?usp=sharing" target="_blank" rel="noopener">IV Clear App Inst TWBD1020 ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1vhotE6ubCK3eNrVbZGpqycMkZynnieT2/view?usp=sharing" target="_blank" rel="noopener">IV Clear App Inst TWBD1014 ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1eX3dAWyA7XrobvB_hHQIChMoH009zJCV/view?usp=sharing" target="_blank" rel="noopener">IV Clear Product Info ES</a></li>
+          <li><a href="https://drive.google.com/file/d/13JdktzvaILO5ULMBBmigMJWB4x8KTP2P/view?usp=sharing" target="_blank" rel="noopener">CovaWound SuperAbsorbent PI ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1QE2zPWhxUarnvEGymRuOv82iFYyCJ91p/view?usp=sharing" target="_blank" rel="noopener">CovaWound Silicone PI ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1WdJeyqwTp7odcMvVRcMCKsbqhfUToo70/view?usp=sharing" target="_blank" rel="noopener">CovaWound Silicone Border PI ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1WPOWpCSh_AdqZkX1fw9ik6zKPCeVncZO/view?usp=sharing" target="_blank" rel="noopener">CovaWound Hydrocolloid PI ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1JjhfboHPY73jIfSyB9VNpiniDE5BU3Ge/view?usp=sharing" target="_blank" rel="noopener">CovaWound Hydrocolloid Border PI ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1dmtOQX8cLKzlV2xYGP6kqjIyel-fdQsN/view?usp=sharing" target="_blank" rel="noopener">CovaWound Foam PI ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1FOR9u29IRui71GaShLKfFLawlUms-ZZ9/view?usp=sharing" target="_blank" rel="noopener">CovaWound Foam Border PI ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1a2xKRQ8oodOONuMaJP6qcVZU9nq41ilx/view?usp=sharing" target="_blank" rel="noopener">CovaWound Alginate PI ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1CA-dAlSnYJJsIn4ebXRS0TJ-t24VFcbt/view?usp=sharing" target="_blank" rel="noopener">CovaWound Alginate Ag PI ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1ZY2_REHPbo0QlvYpabJS3ut5aWSKeaPh/view?usp=sharing" target="_blank" rel="noopener">ColActive Plus PI ES</a></li>
+          <li><a href="https://drive.google.com/file/d/1jNx0Bp22Ac0u1JZxVsXCZ24cbpVojYI4/view?usp=sharing" target="_blank" rel="noopener">ColActive Plus Ag PI ES</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="prod-modal-overlay" id="modal-conkote" onclick="if(event.target===this)this.classList.remove('active')">
+  <div class="prod-modal">
+    <div class="prod-modal-header">
+      <h3 class="prod-modal-title">Conkote</h3>
+      <button class="prod-modal-close" onclick="document.getElementById('modal-conkote').classList.remove('active')">✕</button>
+    </div>
+    <ul class="prod-list">
+          <li><a href="https://drive.google.com/file/d/1050KHRQDssbVrcjHGZYWn-iaGqid7F-G/view?usp=sharing" target="_blank" rel="noopener">Catálogo Español</a></li>
+          <li><a href="https://drive.google.com/file/d/1fybZt2JtT89KrtTYVv7fhq0tc5uGBOXQ/view?usp=sharing" target="_blank" rel="noopener">IFU Vaseline Gauze</a></li>
+          <li><a href="https://drive.google.com/file/d/17E9zmFDlci34ukiVPuxGjyYDXv-mS0lZ/view?usp=sharing" target="_blank" rel="noopener">IFU Non-woven Adhesive Wound Dressing</a></li>
+          <li><a href="https://drive.google.com/file/d/13eH4yTE_asxduB3fhK63GudTPp1LN9qA/view?usp=sharing" target="_blank" rel="noopener">IFU Hydrocolloid Gel Bandages</a></li>
+          <li><a href="https://drive.google.com/file/d/1jOsXFZdDvvXBQDOGEuxxKT15heRbaY-U/view?usp=sharing" target="_blank" rel="noopener">IFU Hydrocolloid Dressing</a></li>
+          <li><a href="https://drive.google.com/file/d/1VIIz7F7V12GZrjyzRptReDt6mR_EFyVY/view?usp=sharing" target="_blank" rel="noopener">IFU Hydrogel</a></li>
+          <li><a href="https://drive.google.com/file/d/17sWwT2npavAOcby4zbFfyslBDyl2aa9t/view?usp=sharing" target="_blank" rel="noopener">IFU Silver Alginate Dressing</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+function openModal(id){ document.getElementById('modal-'+id).classList.add('active'); }
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') document.querySelectorAll('.prod-modal-overlay.active').forEach(m=>m.classList.remove('active')); });
+</script>
+
 </body>
 </html>
