@@ -1080,13 +1080,12 @@ footer { background:var(--navy); padding:44px 0 22px; }
 }
 .prod-pdf-btn {
   display:inline-flex; align-items:center; gap:6px;
-  background:#eef4fb; color:#0B2545; font-size:12px; font-weight:600;
-  padding:7px 14px; border-radius:20px; text-decoration:none;
-  border:1px solid #c8dff0;
-  transition:background .2s, color .2s;
+  background:#0B2545; color:white; font-size:12px; font-weight:600;
+  padding:7px 14px; border-radius:8px; text-decoration:none;
+  transition:background .2s;
 }
-.prod-pdf-btn:hover { background:#0B2545; color:#fff; border-color:#0B2545; }
-.prod-pdf-btn::before { content:"📄"; font-size:12px; }
+.prod-pdf-btn:hover { background:#00B4A6; }
+.prod-pdf-btn::before { content:"⬇"; }
 
 
 /* ═══════════════════════════════════════
@@ -1156,6 +1155,26 @@ footer { background:var(--navy); padding:44px 0 22px; }
 </nav>
 
 <!-- ════════ S1 HERO ════════ -->
+
+<!-- BOTÓN FLOTANTE REFERIR -->
+<a id="fab-referir"
+   href="https://wa.me/584166181760?text=Hola%2C%20quiero%20referir%20un%20paciente%20a%20CTH%20para%20manejo%20especializado%20de%20herida."
+   target="_blank" rel="noopener"
+   style="display:none;">
+  <span class="fab-icon">🔗</span> Referir paciente
+</a>
+<script>
+(function(){
+  var fab = document.getElementById('fab-referir');
+  var hero = document.getElementById('hero');
+  function check(){
+    if(!hero || !fab) return;
+    fab.style.display = hero.getBoundingClientRect().bottom < 0 ? 'flex' : 'none';
+  }
+  window.addEventListener('scroll', check, {passive:true});
+  window.addEventListener('load', check);
+})();
+</script>
 <section id="hero">
   <div class="hero-texture"></div>
   <div class="hero-glow-r"></div>
@@ -1604,26 +1623,36 @@ footer { background:var(--navy); padding:44px 0 22px; }
             <a class="marca-card" onclick="openModal('covalon')" title="Ver productos Covalon">
               <img src="logo-covalon.png" alt="Covalon"
                    onerror="this.style.display='none'">
+              <span class="marca-card-name">Covalon</span>
+              <span class="marca-card-cta">Ver productos →</span>
             </a>
 
             <a class="marca-card" onclick="openModal('synkotech')" title="Ver productos Synkotech">
               <img src="synkotech.jpg" alt="Synkotech"
                    onerror="this.style.display='none'">
+              <span class="marca-card-name">Synkotech</span>
+              <span class="marca-card-cta">Ver productos →</span>
             </a>
 
             <a class="marca-card" onclick="openModal('soubeiran')" title="Ver productos Soubeiran Chobet">
               <img src="logo-soubeiran.png" alt="Soubeiran Chobet"
                    onerror="this.style.display='none'">
+              <span class="marca-card-name">Soubeiran Chobet</span>
+              <span class="marca-card-cta">Ver productos →</span>
             </a>
 
             <a class="marca-card" onclick="openModal('baihe')" title="Ver productos Baihe ABLE">
               <img src="Logo-baihe.png" alt="Baihe ABLE"
                    onerror="this.style.display='none'">
+              <span class="marca-card-name">Baihe · ABLE®</span>
+              <span class="marca-card-cta">Ver productos →</span>
             </a>
 
             <a class="marca-card" onclick="openModal('conkote')" title="Ver productos Conkote">
               <img src="conkote (1).png" alt="Conkote"
                    onerror="this.style.display='none'">
+              <span class="marca-card-name">Conkote</span>
+              <span class="marca-card-cta">Ver productos →</span>
             </a>
 
           </div>
