@@ -344,7 +344,7 @@ nav.scrolled { box-shadow:var(--sh); }
 .fc-2 .fc-ttl { color:white; }
 .fc-2 .fc-sub { color:rgba(255,255,255,.65); }
 
-@media(max-width:900px){ .hero-inner{grid-template-columns:1fr;} .hero-right{display:none;} .hero-vid{display:none;} }
+@media(max-width:900px){ .hero-inner{grid-template-columns:1fr;} .hero-right{display:none;} }
 
 /* ═══════════════════════════════════════════════════
    S2 — APLICACIÓN CLÍNICA
@@ -967,7 +967,7 @@ nav.scrolled { box-shadow:var(--sh); }
 ═══════════════════════════════════════════════════ */
 #dist { padding:44px 0; background:var(--off); border-top:1px solid var(--g50); }
 .dist-inner { display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
-.dist-logo { background:#fff; border-radius:var(--rlg); padding:20px 28px; flex-shrink:0; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px rgba(0,0,0,.08); border:1px solid var(--g50); }
+.dist-logo { background:var(--navy); border-radius:var(--rlg); padding:20px 28px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
 .dist-logo-n { font-family:'DM Serif Display',serif; font-size:16px; color:white; }
 .dist-logo-s { font-size:9px; color:var(--cyan); font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
 .dist-txt { flex:1; min-width:200px; }
@@ -1790,7 +1790,6 @@ footer { background:var(--navy); padding:44px 0 22px; }
         <img class="fb-img" src="cuidamostuherida.jpg" alt="CTH" onerror="this.style.display='none'">
         <div class="fb-name">Cuidamos Tu Herida</div>
         <div class="fb-sub">Unidad Médica · Caracas, Venezuela</div>
-        <div class="fb-sub" style="margin-top:4px;font-size:11px;color:rgba(255,255,255,.45);line-height:1.6;">Centro Clínico Profesional Caracas<br>Piso 13, Consultorio 1308<br>San Bernardino, Caracas</div>
         <p class="fb-desc">Soporte clínico especializado en heridas para médicos especialistas. Parte del ecosistema Medical Shields.</p>
       </div>
       <div class="fc-col">
@@ -1857,10 +1856,7 @@ function toggleMob(btn){
 }
 
 // MODAL
-function abrirModal(){
-  if(sesion && sesion.codigo){ mostrarCuponAbierto(); toast('Ya tienes un código generado: ' + sesion.codigo); return; }
-  document.getElementById('modal-overlay').classList.add('on');
-}
+function abrirModal(){ document.getElementById('modal-overlay').classList.add('on'); }
 function cerrarModalBtn(){ document.getElementById('modal-overlay').classList.remove('on'); }
 function cerrarModal(e){ if(e.target === document.getElementById('modal-overlay')) cerrarModalBtn(); }
 
