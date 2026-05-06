@@ -303,17 +303,12 @@ nav.scrolled { box-shadow:var(--sh); }
 /* Panel derecho */
 .hero-right { position:relative; }
 .hero-vid {
-  border-radius:12px; overflow:hidden;
+  border-radius:var(--rlg); overflow:hidden;
   background:#000;
-  position:relative;
-  width:100%;
-  padding-bottom:56.25%;
-  height:0;
-}
-.hero-vid iframe {
-  position:absolute; top:0; left:0;
-  width:100%; height:100%;
-  border:none; border-radius:12px;
+  border:1px solid rgba(0,174,239,.15);
+  box-shadow:0 20px 56px rgba(0,0,0,.3);
+  aspect-ratio:9/16; position:relative;
+  max-width:320px; margin:0 auto;
 }
 .vid-ph {
   position:absolute; inset:0;
@@ -350,7 +345,7 @@ nav.scrolled { box-shadow:var(--sh); }
 .fc-2 .fc-ttl { color:white; }
 .fc-2 .fc-sub { color:rgba(255,255,255,.65); }
 
-@media(max-width:900px){ .hero-inner{grid-template-columns:1fr;} .hero-right{display:block;margin-top:24px;} }
+@media(max-width:900px){ .hero-inner{grid-template-columns:1fr;} .hero-right{display:none;} }
 
 /* ═══════════════════════════════════════════════════
    S2 — APLICACIÓN CLÍNICA
@@ -1149,6 +1144,12 @@ footer { background:var(--navy); padding:44px 0 22px; }
   #fab-referir { bottom:20px; right:16px; padding:11px 16px; font-size:12px; }
 }
 
+.hero-vid-mobile {
+  display:none;
+  position:relative; width:100%; padding-bottom:56.25%; height:0;
+  border-radius:12px; overflow:hidden; margin-top:20px;
+}
+@media(max-width:900px){ .hero-vid-mobile { display:block; } }
 </style>
 </head>
 <body>
@@ -1263,12 +1264,16 @@ footer { background:var(--navy); padding:44px 0 22px; }
       </div>
     </div>
     <div class="hero-right">
-      <iframe
-          src="https://www.youtube.com/embed/A0-HenFabKs?rel=0&modestbranding=1&playsinline=1"
-          title="CTH — Cuidamos Tu Herida" frameborder="0"
+      <div class="hero-vid">
+        <iframe
+          src="https://www.youtube.com/embed/LdsU-4sF8S4?rel=0&modestbranding=1&playsinline=1"
+          title="CTH — Cuidamos Tu Herida"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-          allowfullscreen style="width:100%;height:100%;border:none;border-radius:12px;">
+          allowfullscreen
+          style="width:100%;height:100%;border:none;border-radius:var(--rlg);">
         </iframe>
+      </div>
       <div class="fc fc-1">
         <div class="fc-ico">🏥</div>
         <div class="fc-ttl">HUC · CM Loira · H. Pérez Carreño</div>
